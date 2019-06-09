@@ -51,7 +51,8 @@
 		"*.json": "jsonc",
 		"*.stats": "cpp",
 		"*.rc": "cpp",
-		"ostream": "cpp"
+		"ostream": "cpp",
+		"cmath": "cpp"
 	},
 
 	"C_Cpp.autocomplete": "Default",
