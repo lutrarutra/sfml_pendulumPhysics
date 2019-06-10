@@ -1,27 +1,35 @@
 #include "Pendulum.h"
-#define PI 3.14159265
+
+#define LOG(x) std::cout << x << std::endl
 
 Pendulum::Pendulum(int m, float a0, int r, int x, int y)
 {
 	this->va = 0;
 	this->mass = m;
 	this->r = r;
-	this->angle = a0;
+	this->angle = a0 * PI / 180;
+	this->va = 0;
 
 	//x and y position is arm's attachment point
-	this->x =x;
+	this->x = x;
 	this->y = y;
-
 
 	this->arm = new sf::RectangleShape(sf::Vector2f(5, r));
 	this->arm->setOrigin(this->arm->getSize().x / 2, 0);
 	this->arm->setPosition(sf::Vector2f(x, y));
 	this->arm->setFillColor(sf::Color::Black);
+	this->arm->setRotation(angle * 180 / PI);
 
-	this->body = new sf::CircleShape(m);
+	this->body = new sf::CircleShape(floor(m / 10));
 	this->body->setOrigin(sf::Vector2f(this->body->getRadius(), this->body->getRadius()));
 	this->body->setPosition(sf::Vector2f(getXPoint(), getYPoint()));
 	this->body->setFillColor(sf::Color(244, 125, 66));
+}
+
+Pendulum::Pendulum(int m, float a0, int r, Pendulum *attachedPendulum)
+{
+	this->attachedPend = attachedPendulum;
+	Pendulum(m, a0, r, attachedPend->getXPoint(), attachedPend->getYPoint());
 }
 
 void Pendulum::draw(sf::RenderWindow &window)
@@ -30,29 +38,32 @@ void Pendulum::draw(sf::RenderWindow &window)
 	window.draw(sf::CircleShape(*this->body));
 }
 
-void Pendulum::addAngle(float da)
-{
-	this->angle += da;
-	this->arm->setRotation(angle);
-}
-
 int Pendulum::getXPoint()
 {
-	return arm->getPosition().x - r * sin(angle * PI / 180);
+	return arm->getPosition().x - r * sin(angle);
 }
 
 int Pendulum::getYPoint()
 {
-	return  arm->getPosition().y + r * cos(angle * PI / 180);
+	return arm->getPosition().y + r * cos(angle);
 }
 
-const sf::CircleShape *Pendulum::getBody()
+float Pendulum::angularAcceleration()
 {
-	return this->body;
+	return (mass * 9.81 * cos(PI / 2 - angle)) / r;
 }
 
-void Pendulum::update()
+void Pendulum::update(float dt)
 {
+	this->va += angularAcceleration() * dt;
+	this->angle -= va * dt + 0.5f * angularAcceleration() * dt * dt;
+	this->arm->setRotation(angle * 180 / PI);
+	if (attachedPend != nullptr)
+	{
+		this->x = attachedPend->getXPoint();
+		this->y = attachedPend->getYPoint();
+		this->arm->setPosition(x, y);
+	}
 	this->body->setPosition(getXPoint(), getYPoint());
 }
 

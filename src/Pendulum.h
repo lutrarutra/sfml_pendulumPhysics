@@ -6,17 +6,19 @@ class Pendulum
 {
 public:
 	Pendulum(int m, float a0, int r, int x, int y);
+	Pendulum(int m, float a0, int r, Pendulum *attachedPendulum);
 	~Pendulum();
-	void update();
-	const sf::CircleShape *getBody();
-	void addAngle(float da);
+	void update(float dt);
 	void draw(sf::RenderWindow &window);
+	float angularAcceleration();
 
 private:
+	const float  PI = 3.14159265358979f;
 	int getXPoint();
 	int getYPoint();
 	int mass, x, y, r;
 	float va, angle;
+	Pendulum *attachedPend = nullptr;
 	sf::CircleShape *body;
 	sf::RectangleShape *arm;
 };
