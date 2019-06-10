@@ -1,5 +1,12 @@
+#include <iostream>
+#include <chrono>
+
 #include "Main.hpp"
 #include "Pendulum.h"
+
+#define PI 3.14159265
+#define LOG(x) std::cout << x << std::endl;
+
 
 int main()
 {
@@ -9,8 +16,10 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "Double Pendulum", sf::Style::Close, settings);
 	sf::Event event;
 
-	Arm *a1 = new Arm(150, 0, window.getSize().x / 2, 50);
-	Pendulum p1(20, a1);
+	Pendulum p1(20, 0, 200, window.getSize().x / 2, 50);
+
+	auto dt = std::chrono::high_resolution_clock::now();
+	auto delay = std::chrono::milliseconds(1);
 
 	while (window.isOpen())
 	{
@@ -20,12 +29,15 @@ int main()
 				window.close();
 		}
 
+		if(std::chrono::high_resolution_clock::now() > dt)
+		{
+			dt = std::chrono::high_resolution_clock::now() + delay;
+
+		}
+
 		window.clear(sf::Color::White);
-		window.draw(sf::RectangleShape(*a1->getBody()));
-		window.draw(sf::CircleShape(*p1.getBody()));
+		p1.draw(window);
 		window.display();
-		a1->addAngle(0.1f);
-		p1.update();
 	}
 
 	return 0;
