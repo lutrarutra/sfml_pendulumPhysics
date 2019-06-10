@@ -13,6 +13,7 @@ public:
 	float angularAcceleration();
 
 private:
+	void init(int m, float a0, int r, int x, int y);
 	const float  PI = 3.14159265358979f;
 	int getXPoint();
 	int getYPoint();
