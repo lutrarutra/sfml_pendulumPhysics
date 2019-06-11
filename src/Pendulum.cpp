@@ -32,6 +32,7 @@ Pendulum::Pendulum(int m, float a0, int r, int x, int y)
 
 Pendulum::Pendulum(int m, float a0, int r, Pendulum *attachedPendulum)
 {
+	this->attachedPend = attachedPendulum;
 	//x and y position is arm's attachment point to other pendulum
 	this->x = attachedPend->getXPoint();
 	this->y = attachedPend->getXPoint();

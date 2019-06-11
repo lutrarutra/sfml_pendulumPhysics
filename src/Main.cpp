@@ -30,7 +30,7 @@ int main()
 	sf::Text text;
 	text.setFont(font);
 	text.setCharacterSize(24);
-	text.setColor(sf::Color::Black);
+	text.setFillColor(sf::Color::Black);
 
 	while (window.isOpen())
 	{
@@ -40,7 +40,7 @@ int main()
 				window.close();
 		}
 
-		//p1->update(clock.getElapsedTime().asSeconds());
+		p1->update(clock.getElapsedTime().asSeconds());
 
 		p2.update(clock.getElapsedTime().asSeconds());
 		clock.restart();
