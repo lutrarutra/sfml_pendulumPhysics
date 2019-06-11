@@ -2,58 +2,40 @@
 
 #define LOG(x) std::cout << x << std::endl
 
-void Pendulum::init(int m, float a0, int r, int x, int y)
+void Pendulum::init(int m, float a0, int r)
 {
+	this->va = 0;
+	this->mass = m;
+	this->r = r;
+	this->angle = a0 * PI / 180;
+	this->va = 0;
 
+	this->arm = new sf::RectangleShape(sf::Vector2f(5, r));
+	this->arm->setOrigin(this->arm->getSize().x / 2, 0);
+	this->arm->setPosition(sf::Vector2f(this->x, this->y));
+	this->arm->setFillColor(sf::Color::Black);
+	this->arm->setRotation(angle * 180 / PI);
+
+	this->body = new sf::CircleShape(floor(m / 10));
+	this->body->setOrigin(sf::Vector2f(this->body->getRadius(), this->body->getRadius()));
+	this->body->setPosition(sf::Vector2f(getXPoint(), getYPoint()));
+	this->body->setFillColor(sf::Color(244, 125, 66));
 }
 
 Pendulum::Pendulum(int m, float a0, int r, int x, int y)
 {
-	this->va = 0;
-	this->mass = m;
-	this->r = r;
-	this->angle = a0 * PI / 180;
-	this->va = 0;
-
 	//x and y position is arm's attachment point
 	this->x = x;
 	this->y = y;
-
-	this->arm = new sf::RectangleShape(sf::Vector2f(5, r));
-	this->arm->setOrigin(this->arm->getSize().x / 2, 0);
-	this->arm->setPosition(sf::Vector2f(x, y));
-	this->arm->setFillColor(sf::Color::Black);
-	this->arm->setRotation(angle * 180 / PI);
-
-	this->body = new sf::CircleShape(floor(m / 10));
-	this->body->setOrigin(sf::Vector2f(this->body->getRadius(), this->body->getRadius()));
-	this->body->setPosition(sf::Vector2f(getXPoint(), getYPoint()));
-	this->body->setFillColor(sf::Color(244, 125, 66));
+	init(m, a0, r);
 }
 
 Pendulum::Pendulum(int m, float a0, int r, Pendulum *attachedPendulum)
 {
-	this->attachedPend = attachedPendulum;
-	this->va = 0;
-	this->mass = m;
-	this->r = r;
-	this->angle = a0 * PI / 180;
-	this->va = 0;
-
-	//x and y position is arm's attachment point
+	//x and y position is arm's attachment point to other pendulum
 	this->x = attachedPend->getXPoint();
 	this->y = attachedPend->getXPoint();
-
-	this->arm = new sf::RectangleShape(sf::Vector2f(5, r));
-	this->arm->setOrigin(this->arm->getSize().x / 2, 0);
-	this->arm->setPosition(sf::Vector2f(x, y));
-	this->arm->setFillColor(sf::Color::Black);
-	this->arm->setRotation(angle * 180 / PI);
-
-	this->body = new sf::CircleShape(floor(m / 10));
-	this->body->setOrigin(sf::Vector2f(this->body->getRadius(), this->body->getRadius()));
-	this->body->setPosition(sf::Vector2f(getXPoint(), getYPoint()));
-	this->body->setFillColor(sf::Color(244, 125, 66));
+	init(m, a0, r);
 }
 
 void Pendulum::draw(sf::RenderWindow &window)
