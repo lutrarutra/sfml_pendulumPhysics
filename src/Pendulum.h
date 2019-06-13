@@ -8,10 +8,10 @@ public:
 	Pendulum(int m, float a0, int r, int x, int y);
 	Pendulum(int m, float a0, int r, Pendulum *upperPendulum);
 	~Pendulum();
-	sf::Vector2f update(float dt);
+	void update();
 	void draw(sf::RenderWindow &window);
 	void attachPendulum(Pendulum *lowerPendulum);
-
+	sf::Vector2f updatePos(float dt);
 private:
 	void init(int m, float a0, int r);
 	const float  PI = 3.14159265358979f;

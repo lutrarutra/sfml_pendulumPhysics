@@ -57,7 +57,24 @@ int Pendulum::getYPoint()
 	return arm->getPosition().y + r * cos(a);
 }
 
-sf::Vector2f Pendulum::update(float dt)
+sf::Vector2f Pendulum::updatePos(float dt)
+{
+	this->v += this->va * dt;
+	this->a += this->v * dt;
+
+	if (upperPendulum != nullptr)
+	{
+		this->x = upperPendulum->getXPoint();
+		this->y = upperPendulum->getYPoint();
+	}
+
+	this->arm->setPosition(x, y);
+	this->arm->setRotation(this->a * 180 / PI);
+	this->body->setPosition(this->getXPoint(), this->getYPoint());
+	return sf::Vector2f(this->getXPoint(), this->getYPoint());
+}
+
+void Pendulum::update()
 {
 	float m1 = upperPendulum->mass;
 	float m2 = this->mass;
@@ -80,22 +97,6 @@ sf::Vector2f Pendulum::update(float dt)
 	num3 = G * (m1 + m2) * cos(a1) + v2 * v2 * r2 * m2 * cos(a1 - a2);
 	den = r2 * (2 * m1 + m2 - m2 * cos(2 * a1 - 2 * a2));
 	this->va = (num1 * (num2 + num3)) / den;
-
-	this->v += this->va * dt;
-	upperPendulum->v += upperPendulum->va * dt;
-
-	this->a += this->v * dt;
-	upperPendulum->a += upperPendulum->v *dt;
-
-	upperPendulum->arm->setRotation(upperPendulum->a * 180 / PI);
-	upperPendulum->body->setPosition(upperPendulum->getXPoint(), upperPendulum->getYPoint());
-
-	this->x = upperPendulum->getXPoint();
-	this->y = upperPendulum->getYPoint();
-	this->arm->setPosition(x, y);
-	this->arm->setRotation(this->a * 180 / PI);
-	this->body->setPosition(this->getXPoint(), this->getYPoint());
-	return sf::Vector2f(this->getXPoint(), this->getYPoint());
 }
 
 Pendulum::~Pendulum()

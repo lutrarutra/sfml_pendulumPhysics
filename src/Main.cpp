@@ -17,8 +17,11 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "Double Pendulum", sf::Style::Close, settings);
 	sf::Event event;
 
-	Pendulum *p1 = new Pendulum(100, 90, 220, window.getSize().x / 2, 175);
-	Pendulum p2(100, 90, 220, p1);
+	Pendulum p1(100, 90, 220, window.getSize().x / 2, 175);
+	Pendulum p2(100, 90, 220, &p1);
+
+	//You could add more pendulums but I am not sure if this is correct in terms of physics...
+	//Pendulum p3(100, 90, 220, &p2);
 
 	sf::Clock clock;
 	sf::Font font;
@@ -45,15 +48,23 @@ int main()
 				window.close();
 		}
 
-		line.push_back(sf::Vertex(p2.update(clock.getElapsedTime().asSeconds() * 20), sf::Color::Black));
+		//p3.update();
+		p2.update();
+		//p3.updatePos(clock.getElapsedTime().asSeconds() * 20);
+		line.push_back(sf::Vertex(p2.updatePos(clock.getElapsedTime().asSeconds() * 20), sf::Color::Black));
+		p1.updatePos(clock.getElapsedTime().asSeconds() * 20);
+
 		clock.restart();
 		lineArr = &line[0];
 		window.clear(sf::Color::White);
+
 		window.draw(lineArr, line.size(), sf::Lines);
-		p1->draw(window);
+		p1.draw(window);
 		p2.draw(window);
+		//p3.draw(window);
+
 		window.display();
 	}
-	delete p1;
+
 	return 0;
 }
