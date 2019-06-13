@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "Main.hpp"
 #include "Pendulum.h"
 
 #define PI 3.14159265
 #define LOG(x) std::cout << x << std::endl
+
 
 int main()
 {
@@ -15,8 +17,8 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "Double Pendulum", sf::Style::Close, settings);
 	sf::Event event;
 
-	Pendulum *p1 = new Pendulum(350, 95, 200, window.getSize().x / 2, 50);
-	Pendulum p2(350, 15, 200, p1);
+	Pendulum *p1 = new Pendulum(100, 90, 220, window.getSize().x / 2, 175);
+	Pendulum p2(100, 90, 220, p1);
 
 	sf::Clock clock;
 	sf::Font font;
@@ -32,6 +34,9 @@ int main()
 	text.setCharacterSize(24);
 	text.setFillColor(sf::Color::Black);
 
+	std::vector<sf::Vertex> line;
+	sf::Vertex *lineArr;
+
 	while (window.isOpen())
 	{
 		while (window.pollEvent(event))
@@ -40,14 +45,11 @@ int main()
 				window.close();
 		}
 
-		p1->update(clock.getElapsedTime().asSeconds());
-
-		p2.update(clock.getElapsedTime().asSeconds());
+		line.push_back(sf::Vertex(p2.update(clock.getElapsedTime().asSeconds() * 20), sf::Color::Black));
 		clock.restart();
-
+		lineArr = &line[0];
 		window.clear(sf::Color::White);
-		text.setString(std::to_string(p1->angularAcceleration()));
-		window.draw(text);
+		window.draw(lineArr, line.size(), sf::Lines);
 		p1->draw(window);
 		p2.draw(window);
 		window.display();
