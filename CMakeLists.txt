@@ -9,7 +9,7 @@ project(${ProjectId})
 set(CMAKE_CXX_STANDARD 11)
 
 # Enable additional warnings
-# add_compile_options(-Wall -Wextra -Wpedantic)
+add_compile_options(-Wall -Wextra -Wpedantic)
 
 # Folder for header files (".h"-files)
 include_directories(src)
