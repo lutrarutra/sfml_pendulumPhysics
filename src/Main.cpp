@@ -2,12 +2,10 @@
 #include <string>
 #include <vector>
 
-#include "Main.hpp"
 #include "Pendulum.h"
 
 #define PI 3.14159265
 #define LOG(x) std::cout << x << std::endl
-
 
 int main()
 {
