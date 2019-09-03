@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="sfml_pendulumPhysics"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\res\;CMake Files\cmake_modules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sfml_pendulumPhysics">
+				<Option output="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/sfml_pendulumPhysics" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/src"/>
+					<Add directory="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/SFML/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 sfml_pendulumPhysics"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sfml_pendulumPhysics/fast">
+				<Option output="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/sfml_pendulumPhysics" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/src"/>
+					<Add directory="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/SFML/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 sfml_pendulumPhysics/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/src/Pendulum.cpp">
+			<Option target="sfml_pendulumPhysics"/>
+		</Unit>
+		<Unit filename="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/src/Pendulum.h">
+			<Option target="sfml_pendulumPhysics"/>
+		</Unit>
+		<Unit filename="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/src/main.cpp">
+			<Option target="sfml_pendulumPhysics"/>
+		</Unit>
+		<Unit filename="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/res/OpenSans-Regular.ttf">
+			<Option virtualFolder="CMake Files\res\"/>
+		</Unit>
+		<Unit filename="/Users/lutrarutra/Documents/dev/sfml_projects/sfml_pendulumPhysics/cmake_modules/FindSFML.cmake">
+			<Option virtualFolder="CMake Files\cmake_modules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
