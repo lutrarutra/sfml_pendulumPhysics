@@ -4,7 +4,7 @@ project(sfml_pendulumPhysics)
 set(CMAKE_CXX_STANDARD 14)
 
 
-set(SOURCES src/main.cpp src/Pendulum.cpp)
+set(SOURCES src/Main.cpp src/Pendulum.cpp)
 add_executable(${PROJECT_NAME} ${SOURCES})
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "a")
 
